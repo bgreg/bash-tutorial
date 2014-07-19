@@ -228,14 +228,15 @@ echo "what if you want to search the whole home drectory for tha file?, instead 
 read
 echo "this will search all of home directory, return only files that end it .(any single letter)xt"
 read
-echo '% find ~ -type f -name "*.?xt" 2>/dev/null | wc -l'
+echo '% find ~ -type f -name "*.?xt" 2>/dev/null'
 find ~ -type f -name "*.?xt" 2>/dev/null
+echo "Big search over"
 
 read
-echo "the whole computer, pass it root:  'find / -type f -name "*.?xt" 2>/dev/null | wc -l'"
+echo "The whole computer, pass it root:  'find / -type f -name "*.?xt" 2>/dev/null | wc -l'"
 
 read
-echo "empty our file, also called clobbering"
+echo "Empty our file, also called clobbering"
 read
 echo '% echo "" > new_file.txt'
 read
@@ -262,5 +263,8 @@ rm  another.txt
 rm  and_another.txt
 
 read
+echo "Thats all folks!"
+read
 echo "And now a blatant Mission Immpossible reference"
+read
 say "I will self destruct in 10 seconds"; for (( i = 10; i > 0; i-- )); do  say $i ; done
