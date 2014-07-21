@@ -199,6 +199,8 @@ echo '% cp new_file.txt and_another.txt'
 read
 echo '% grep [^za] *.?xt'
 read
+echo 'for more: http://rubular.com/'
+read
 cp new_file.txt another.txt
 cp new_file.txt and_another.txt
 grep [^za] *.?xt
