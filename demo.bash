@@ -1,37 +1,44 @@
 #!/bin/bash
 
-echo "It's bashing time"
+echo "Welcome to part two of the bash series. This presentation assums you have a basic understanding of what the shell is, and how it interacts with the operating system."
+echo 
+echo "We are going to cover creating, reading, searching, and destroying files. Mastering file operations is the first step twords command line proficiency."
+echo "This script works by showing you an explaining sentence, pressing enter will then show you the associated command, and pressing enter again will run that command."
+echo
+echo "It's bashing time!"
 
 read
-echo "Lets make a file"
+echo "Let's make a file."
 read
 echo "% touch new_file.txt"
 read
 touch new_file.txt
 
 read
-echo "set access to the file to 'writeable'"
+echo "Now we need to set access on the file to 'writeable'"
 read
 echo "% chmod +w new_file.txt"
 read
 chmod +w new_file.txt
 
 read
-echo "Now, lets see what is in it"
+echo "Let's see what is in this new file."
 read
 echo "% cat new_file.txt"
 read
 cat new_file.txt
 
 read
-echo "Nothing yet, so lets add some stuff to the file"
+echo "Nothing yet, so I'll add some random text to it."
+echo "For extra credit, come back to this part of the script and try to figure out what it is doing."
 read
-echo "for extra credit, come back to this part and try to figure out what it is doing"
-read
-cool_thing_to_say="Neutra Odd Future High Life, you probably haven't heard of them art party selvage narwhal street art chillwave paleo yr pour-over Intelligentsia umami wayfarers. Truffaut drinking vinegar Etsy, forage lo-fi leggings locavore ennui plaid vinyl stumptown 8-bit cardigan. Wes Anderson dreamcatcher chia next level, tousled fingerstache hella umami photo booth quinoa Tumblr kitsch vinyl. Portland quinoa banjo readymade. Sustainable selfies hashtag leggings fap. Godard Neutra DIY whatever gastropub. Mlkshk banh mi DIY, Neutra +1 Godard Helvetica Blue Bottle."
-a=($cool_thing_to_say)
-num_words=${#a[*]}
 
+# declairing a variable in bash
+cool_thing_to_say="Neutra Odd Future High Life, you probably haven't heard of them art party selvage narwhal street art chillwave paleo yr pour-over Intelligentsia umami wayfarers. Truffaut drinking vinegar Etsy, forage lo-fi leggings locavore ennui plaid vinyl stumptown 8-bit cardigan. Wes Anderson dreamcatcher chia next level, tousled fingerstache hella umami photo booth quinoa Tumblr kitsch vinyl. Portland quinoa banjo readymade. Sustainable selfies hashtag leggings fap. Godard Neutra DIY whatever gastropub. Mlkshk banh mi DIY, Neutra +1 Godard Helvetica Blue Bottle."
+a=($cool_thing_to_say)  # create an array 
+num_words=${#a[*]}      # Count the number of words in the array
+
+# loop from 1 to 300 and randomly echo a set of 3 random words from our array into the new file
 for i in {1..300}
 do
   echo "${a[$((RANDOM%num_words))]} ${a[$((RANDOM%num_words))]} ${a[$((RANDOM%num_words))]}" >> new_file.txt
@@ -96,25 +103,26 @@ read
 man less
 
 read
-echo "so search up is ?, and search down is /, next value is n, and quit is q"
+echo "From the less man page, we learned commands for search up: ?, search down: /, next value: n, and quit: q"
+echo "In summary, you can search files by opening them in less but this a slow manual process."
 
 read
-echo "That was a manual search, grep is how we do automated searching"
-echo "Search for the word 'Life',  we use: grep [pattern] path"
+echo "What do you do if you need to search multiple files for certain text?, grep is how we do this automated searching"
+echo "For example, to Search for the word 'Life',  we use: grep [pattern] path"
 read
 echo "% grep Life new_file.txt"
 read
 grep Life new_file.txt
 
 read
-echo "Search for the word 'life', but we forgot the case to use. -i will ignore case"
+echo "Now, what if we need to search for the word 'life', but we don't care about the case. -i will ignore case"
 read
 echo "% grep -i life new_file.txt"
 read
 grep -i life new_file.txt
 
 read
-echo "Want to know how many times that word occurs?, use count: '-c'"
+echo "Want to know how many times the world life occurs in this file?, use count: '-c'"
 read
 echo "% grep -c [pattern] path"
 read
@@ -123,7 +131,8 @@ read
 grep -c  Life new_file.txt
 
 read
-echo "want to know every line if the file that starts with 'Life', in that case we need to learn what the 're' means in grep"
+echo "Here is where it gets a little harder."
+echo "What if you wanted to know every line of the file that starts with 'Life', in that case we need to learn what the 're' means in grep"
 read
 echo "grep means: globally search a regular expression and print"
 
@@ -225,7 +234,9 @@ find . -type f -name "*.?xt" 2>/dev/null
 #                             ^  redirect all the errors to null
 
 #
-# find bonus material
+# 
+# secret bonus material on the find command
+#---------------------------------------------
 #
 # find . -name "*.orig" -exec rm {}\;
 #
@@ -277,9 +288,9 @@ rm  and_another.txt
 read
 echo "Thats all folks!"
 read
-echo "And now a blatant Mission Immpossible reference"
+echo "And now a Mission Immpossible reference"
 read
-say "I will self destruct in 10 seconds"; for (( i = 10; i > 0; i-- )); do  say $i ; done
+say "I will self destruct in 5 seconds"; for (( i = 5; i > 0; i-- )); do  say $i ; done
 
 # Extra credit
-# If your in the rails world, read this: http://guides.rubyonrails.org/command_line.html
+# If you are in the rails world, read this: http://guides.rubyonrails.org/command_line.html
