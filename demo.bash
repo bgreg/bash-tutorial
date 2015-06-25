@@ -291,6 +291,3 @@ read
 echo "And now a Mission Immpossible reference"
 read
 say "I will self destruct in 5 seconds"; for (( i = 5; i > 0; i-- )); do  say $i ; done
-
-# Extra credit
-# If you are in the rails world, read this: http://guides.rubyonrails.org/command_line.html
